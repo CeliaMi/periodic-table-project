@@ -1,0 +1,903 @@
+:root {
+  --color-nonmetal: #FFB6C1;         
+  --color-noble-gas: #87CEEB;         
+  --color-alkali-metal: #FFA07A;     
+  --color-alkaline-earth: #98FB98;   
+  --color-metalloid: #DDA0DD;         
+  --color-halogen: #F0E68C;           
+  --color-transition-metal: #E6E6FA;  
+  --color-post-transition: #B0C4DE;   
+  --color-lanthanide: #FFE4B5;        
+  --color-actinide: #FFDAB9; 
+  --color-electron: #333333;
+  --color-proton: #f57777;
+  --color-neutron: #62b6d0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 1rem;
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.container h1 {
+    margin-top: 4rem;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+.centered-text {
+    text-align: center;
+}
+
+/* sección - Reflexión */
+.reflection {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    padding: 10rem 0;
+    background:
+                url('./files/nasa-astronaut.jpg') no-repeat center center;
+    background-size: cover;
+    background-position: center;
+    background-attachment:fixed;    color: white;
+    text-align: center;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: flex-end; 
+    align-items: center; 
+}
+
+.reflection-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.reflection h3 {
+    color: white;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.reflection p {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.4;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    font-size: 1.3rem;
+}
+
+/* Ajuste para pantallas de 14 pulgadas o menos */
+@media (max-width: 1366px) {
+    .reflection-content {
+        margin-top: 8rem;
+        padding-bottom: 0.5rem;
+
+    }
+}
+
+/* Ajuste para pantallas aún más pequeñas */
+@media (max-width: 1024px) {
+    .reflection-content {
+        margin-top: 6rem;
+    
+    }
+}
+
+/* sección - Tabla Periódica */
+.periodic-table-container {
+    max-width: 100%;
+    margin: 4rem auto;
+    padding: 0;
+    overflow-x: auto;
+}
+
+.periodic-table {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(18, 1fr);
+    gap: 2px;
+    padding: 0.5rem;
+    background-color: #f0f2f5;
+    border-radius: 10px;
+    margin-bottom: 0;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.element {
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    position: relative;
+    min-width: 0;
+    font-size: 0.8rem;
+}
+
+/* Modo incompleto (elemento sin página creada) */
+.element.incomplete {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Modo completado (elemento con página creada) */
+.element.completed {
+    opacity: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.element.completed:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.element button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1;
+}
+
+.element a {
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Elementos con enlace */
+.element:has(a) {
+    opacity: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border: 2px solid #2c3e50;
+}
+
+.element:has(a):hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Elementos sin enlace */
+.element:not(:has(a)) {
+    cursor: not-allowed;
+}
+
+.element .number {
+    font-size: 0.6rem;
+    color: #333;
+    font-weight: 500;
+}
+
+.element .symbol {
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 0.1rem 0;
+}
+
+.element .name {
+    font-size: 0.5rem;
+    text-align: center;
+    color: #666;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+/* Ajustar esto para que no sea solo el carbono si no cualquiera que este con página creada */
+/* Estilos específicos para el Carbono */
+.element.carbon {
+    color: white;
+    opacity: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border: 2px solid #2c3e50;
+}
+
+.element.carbon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.element.carbon .number,
+.element.carbon .name {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Espacios vacíos en la tabla */
+.empty {
+    visibility: hidden;
+}
+
+/* Estilos para la leyenda de la tabla periódica */
+.legend {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 10;
+}
+
+.legend-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.legend-header:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.legend-header h3 {
+    color: #2c3e50;
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.legend-header i {
+    color: #2c3e50;
+    transition: transform 0.3s ease;
+}
+
+.legend-container {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.3s ease;
+    position: absolute;
+    left: 1.5rem;
+    right: 1.5rem;
+    z-index: 10;
+}
+
+.legend:hover .legend-container {
+    max-height: 500px;
+    opacity: 1;
+    margin-top: 1rem;
+}
+
+.legend:hover .legend-header i {
+    transform: rotate(180deg);
+}
+
+.legend-item {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.3rem 0.6rem;
+    border-radius: 20px;
+    transition: transform 0.2s;
+    white-space: nowrap;
+}
+
+.legend-item:hover {
+    transform: translateY(-2px);
+}
+
+.legend-item span {
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin-left: 0.5rem;
+    color: #333;
+}
+
+/* Colores de la leyenda */
+.legend-item::before {
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    margin-right: 0.5rem;
+}
+
+.legend-item.nonmetal::before {
+    background-color: var(--color-nonmetal);
+}
+
+.legend-item.noble-gas::before {
+    background-color: var(--color-noble-gas);
+}
+
+.legend-item.alkali-metal::before {
+    background-color: var(--color-alkali-metal);
+}
+
+.legend-item.alkaline-earth::before {
+    background-color: var(--color-alkaline-earth);
+}
+
+.legend-item.metalloid::before {
+    background-color: var(--color-metalloid);
+}
+
+.legend-item.halogen::before {
+    background-color: var(--color-halogen);
+}
+
+.legend-item.transition-metal::before {
+    background-color: var(--color-transition-metal);
+}
+
+.legend-item.post-transition::before {
+    background-color: var(--color-post-transition);
+}
+
+.legend-item.lanthanide::before {
+    background-color: var(--color-lanthanide);
+}
+
+.legend-item.actinide::before {
+    background-color: var(--color-actinide);
+}
+
+
+/*  sección - ¿Qué es la Tabla Periódica? */
+
+.info {
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    padding: 5rem 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)),
+                url('./files/aldebaran-pink-unsplash.jpg') no-repeat center center;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.info-content {
+    width: 100vh;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.info-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 3rem;
+    background-color: #f0f2f5;
+}
+
+.info-section h2 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+.info-section h3 {
+    color: #34495e;
+    margin: 2rem 0 1rem;
+    font-size: 1.5rem;
+}
+
+.info-section p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    color: #444;
+}
+
+/*  sección - Los Tres Ingredientes Fundamentales */
+.atomic{
+    position: relative;
+    width: 100vw;
+    background:var(--color-electron);
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+}
+.atomic-content{
+    width: 100vh;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+    color: white;
+    font-size: 1.5rem;
+
+}
+.atomic-3D{
+    width: 60vw;
+    height: 40vh;
+    left: 50%;
+    right: 50%;
+    text-align: center;
+}
+
+
+.ingredients-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+    padding: 2rem;
+    border-radius: 10px;
+    background-color: #f0f2f5;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.ingredient-card {
+    padding: 2.5rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    color: var(--color-electron);
+    text-align: center;
+    background-color: transparent;
+}
+
+.ingredient-card:hover {
+    transform: translateY(-5px);
+    background-color: white;
+}
+
+.ingredient-card i {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+    transition: transform 0.3s ease;
+}
+
+.ingredient-card:hover i {
+    transform: scale(1.1);
+}
+
+.ingredient-card h4 {
+    color: var(--color-electron);
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.ingredient-card p {
+    color: var(--color-electron);
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* Colores específicos para cada ingrediente */
+/* protones */
+.ingredient-card:nth-child(1) {
+    color: var(--color-proton);
+}
+
+/* neutrones */
+.ingredient-card:nth-child(2) {
+    color: var(--color-neutron);
+}
+
+/* electrones */
+.ingredient-card:nth-child(3) {
+    color: var(--color-electron);
+}
+
+.ingredient-reflection {
+    max-width: 1200px;
+    margin: 2rem auto;
+    text-align: center;
+    padding: 0 2rem;
+}
+
+.ingredient-reflection p {
+    font-size: 1.2rem;
+    color: #2c3e50;
+    line-height: 1.6;
+}
+
+/* Estilos para el aviso de orientación */
+.orientation-warning {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.warning-content {
+    text-align: center;
+    color: white;
+    padding: 2rem;
+}
+
+.rotate-icon {
+    font-size: 4rem;
+    display: block;
+    margin-bottom: 1rem;
+    animation: rotate 2s infinite linear;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .periodic-table-container {
+        margin: 3rem auto;
+    }
+    
+    .periodic-table {
+        gap: 1px;
+        padding: 0.3rem;
+    }
+    
+    .element {
+        padding: 0.1rem;
+    }
+    
+    .element .number {
+        font-size: 0.5rem;
+    }
+    
+    .element .symbol {
+        font-size: 0.8rem;
+    }
+    
+    .element .name {
+        font-size: 0.4rem;
+    }
+
+    .info-section {
+        padding: 1.5rem;
+    }
+
+    .info-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .info-section h3 {
+        font-size: 1.2rem;
+    }
+
+    .ingredients-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Ajustar el tamaño en pantallas muy pequeñas */
+@media (max-width: 480px) {
+    .periodic-table-container {
+        margin: 2rem auto;
+    }
+    
+    .periodic-table {
+        gap: 1px;
+        padding: 0.2rem;
+    }
+
+    .element {
+        padding: 0.1rem;
+    }
+
+    .element .number {
+        font-size: 0.4rem;
+    }
+
+    .element .symbol {
+        font-size: 0.7rem;
+    }
+
+    .element .name {
+        font-size: 0.35rem;
+    }
+}
+
+/* Orientación vertical en móviles */
+@media (max-width: 768px) and (orientation: portrait) {
+    .orientation-warning {
+        display: flex;
+    }
+    
+    .container {
+        display: none;
+    }
+}
+
+/* Orientación horizontal en móviles */
+@media (max-width: 768px) and (orientation: landscape) {
+    .periodic-table {
+        grid-template-columns: repeat(18, 1fr);
+    }
+    
+    .element {
+        padding: 0.2rem;
+    }
+    
+    .element .symbol {
+        font-size: 0.8rem;
+    }
+    
+    .element .name {
+        font-size: 0.4rem;
+    }
+
+    .info-section {
+        font-size: 0.9rem;
+    }
+}
+
+/* Colores por grupos de elementos */
+.element.nonmetal {
+    background-color: var(--color-nonmetal);
+}
+
+.element.noble-gas {
+    background-color: var(--color-noble-gas);
+}
+
+.element.alkali-metal {
+    background-color: var(--color-alkali-metal);
+}
+
+.element.alkaline-earth {
+    background-color: var(--color-alkaline-earth);
+}
+
+.element.metalloid {
+    background-color: var(--color-metalloid);
+}
+
+.element.halogen {
+    background-color: var(--color-halogen);
+}
+
+.element.transition-metal {
+    background-color: var(--color-transition-metal);
+}
+
+.element.post-transition {
+    background-color: var(--color-post-transition);
+}
+
+.element.lanthanide {
+    background-color: var(--color-lanthanide);
+}
+
+.element.actinide {
+    background-color: var(--color-actinide);
+}
+
+/* Estilos del footer */
+footer {
+    background-color: #FF4700;
+    color: white;
+    padding: 2rem 0;
+    margin-top: 3rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.footer-content p {
+    margin-bottom: 1rem;
+}
+
+.footer-content a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-content a:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.logotype{
+    width: 10%;
+    height: 10%;
+    margin:auto;
+}
+.logotype img{
+    width: 100%;
+    height: 100%;
+    margin:auto;
+}
+.logotype img:hover{
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+.scroll-arrow {
+    font-size: 3rem;
+    margin-top: 3rem;
+    animation: bounce 2s infinite;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Estilos del Modal */
+.legend-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.legend-modal.active {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-content {
+    background-color: white;
+    width: 90%;
+    max-width: 600px;
+    margin: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+}
+
+.legend-modal.active .modal-content {
+    transform: translateY(0);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.modal-header h3 {
+    color: #2c3e50;
+    margin: 0;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #666;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.close-modal:hover {
+    color: #333;
+}
+
+.modal-body {
+    padding: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+/* Mantener los estilos existentes de legend-item */
+.legend-item {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: transform 0.2s;
+    white-space: nowrap;
+}
+
+.legend-item:hover {
+    transform: translateY(-2px);
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.legend-item span {
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin-left: 0.5rem;
+    color: #333;
+}
+
+/* Colores de la leyenda */
+.legend-item::before {
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    margin-right: 0.5rem;
+}
+
+/* Mantener los estilos de colores existentes */
+
+/* Ajustar el contenedor de los ingredientes */
+.container:has(.ingredients-grid) {
+    padding: 2rem;
+}
+
