@@ -303,19 +303,15 @@ function generatePeriodicTable() {
     }
 }
 
-// Inicializar la tabla cuando se carga la página
-document.addEventListener('DOMContentLoaded', generatePeriodicTable);
-
 // Control del modal de la leyenda
 const legendHeader = document.querySelector('.legend-header');
 const legendModal = document.querySelector('.legend-modal');
 const closeModal = document.querySelector('.close-modal');
 
-// Abrir modal al hacer click o hover
+// Abrir modal al hacer click
 legendHeader.addEventListener('click', () => {
     legendModal.classList.add('active');
 });
-
 
 // Cerrar modal
 closeModal.addEventListener('click', () => {
@@ -334,4 +330,7 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && legendModal.classList.contains('active')) {
         legendModal.classList.remove('active');
     }
-}); 
+});
+
+// Inicializar la tabla cuando se carga la página
+document.addEventListener('DOMContentLoaded', generatePeriodicTable); 

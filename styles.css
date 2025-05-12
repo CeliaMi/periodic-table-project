@@ -409,7 +409,8 @@ h1 {
 }
 
 .info-content {
-    width: 100vh;
+    width: 100%;
+    max-width: 800px;
     margin: 0 auto;
     padding: 2rem;
     text-align: center;
@@ -452,14 +453,20 @@ h1 {
     text-align: center;
 }
 .atomic-content{
-    width: 100vh;
+    width: 100%;
+    max-width: 800px;
     margin: 0 auto;
     padding: 2rem;
     text-align: center;
     color: white;
     font-size: 1.5rem;
-
 }
+.atomic-content p,
+.info-content p {
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
 .atomic-3D{
     width: 60vw;
     height: 40vh;
@@ -559,12 +566,16 @@ h1 {
     z-index: 1000;
     justify-content: center;
     align-items: center;
+    transition: opacity 0.3s ease;
 }
 
 .warning-content {
     text-align: center;
     color: white;
     padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    max-width: 90%;
 }
 
 .rotate-icon {
@@ -583,29 +594,76 @@ h1 {
     }
 }
 
-/* Responsive design */
+/* Estilos para los iconos de giro */
+.rotate-hint {
+    display: none;
+    text-align: center;
+    color: #2c3e50;
+    font-size: 2rem;
+    animation: pulse 2s infinite;
+    margin: 1rem 0;
+}
+
+.rotate-hint.bottom {
+    margin-top: 3rem;
+}
+
+.rotate-hint i {
+    display: inline-block;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+    100% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+}
+
+/* Ajustes para la tabla periódica en móvil */
 @media (max-width: 768px) {
     .periodic-table-container {
-        margin: 3rem auto;
+        position: relative;
+        margin: 1rem auto;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
     }
-    
+
     .periodic-table {
+        display: grid;
+        grid-template-columns: repeat(18, 1fr);
         gap: 1px;
         padding: 0.3rem;
+        min-width: 1000px;
     }
-    
+
+    .rotate-hint.top {
+        display: block;
+    }
+
+    .rotate-hint.bottom {
+        display: none;
+    }
+
     .element {
         padding: 0.1rem;
     }
-    
+
     .element .number {
         font-size: 0.5rem;
     }
-    
+
     .element .symbol {
         font-size: 0.8rem;
     }
-    
+
     .element .name {
         font-size: 0.4rem;
     }
@@ -624,6 +682,32 @@ h1 {
 
     .ingredients-grid {
         grid-template-columns: 1fr;
+    }
+
+    .info-content,
+    .atomic-content {
+        padding: 1.5rem;
+        font-size: 1.2rem;
+    }
+
+    .info-content p,
+    .atomic-content p {
+        font-size: 1.1rem;
+        padding: 0 1rem;
+    }
+
+    .atomic-content h3,
+    .info-content h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+}
+
+/* Mostrar el icono inferior solo en orientación horizontal */
+@media (max-width: 768px) and (orientation: landscape) {
+    .rotate-hint.bottom {
+        display: block;
+        margin-top: 3rem;
     }
 }
 
@@ -653,16 +737,29 @@ h1 {
     .element .name {
         font-size: 0.35rem;
     }
+
+    .info-content,
+    .atomic-content {
+        padding: 1rem;
+        font-size: 1rem;
+    }
+
+    .info-content p,
+    .atomic-content p {
+        font-size: 1rem;
+        padding: 0 0.5rem;
+    }
+
+    .atomic-content h3,
+    .info-content h2 {
+        font-size: 1.5rem;
+    }
 }
 
-/* Orientación vertical en móviles */
+/* Eliminar la regla de orientación vertical en móviles */
 @media (max-width: 768px) and (orientation: portrait) {
-    .orientation-warning {
-        display: flex;
-    }
-    
     .container {
-        display: none;
+        display: block;
     }
 }
 
