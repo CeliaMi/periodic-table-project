@@ -24,7 +24,7 @@ No es necesario seguir un enfoque estrictamente científico. La idea es explorar
 
 ---
 
-## Estructura del proyecto individual
+## Estructura del proyecto 
 
 Cada repositorio deberá contener al menos:
 
