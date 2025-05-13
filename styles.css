@@ -62,16 +62,17 @@ h1 {
     margin-left: -50vw;
     margin-right: -50vw;
     padding: 10rem 0;
-    background:
-                url('./files/nasa-astronaut.jpg') no-repeat center center;
+    background: url('./files/nasa-astronaut.jpg') no-repeat center center;
     background-size: cover;
     background-position: center;
-    background-attachment:fixed;    color: white;
+    background-attachment:fixed;    
+    color: white;
     text-align: center;
     display: flex; 
     flex-direction: column; 
     justify-content: flex-end; 
     align-items: center; 
+    background-color: black;
 }
 
 .reflection-content {
