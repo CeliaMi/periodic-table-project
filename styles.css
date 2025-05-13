@@ -595,23 +595,7 @@ h1 {
     }
 }
 
-/* Estilos para los iconos de giro */
-.rotate-hint {
-    display: none;
-    text-align: center;
-    color: #2c3e50;
-    font-size: 2rem;
-    animation: pulse 2s infinite;
-    margin: 1rem 0;
-}
 
-.rotate-hint.bottom {
-    margin-top: 3rem;
-}
-
-.rotate-hint i {
-    display: inline-block;
-}
 
 @keyframes pulse {
     0% {
