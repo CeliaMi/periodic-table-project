@@ -74,7 +74,7 @@ h1 {
     font-size: 2rem;
     color: var(--color-neutron);;
     animation: swipeRight 2.5s infinite ease-in-out;
-    transform: rotate(-45deg);
+    transform: rotate(45deg);
 }
 
 .swipe-text {
@@ -91,15 +91,15 @@ h1 {
 
 @keyframes swipeRight {
     0% {
-        transform: translateX(30px) rotate(-45deg);
+        transform: translateX(30px) rotate(45deg);
         opacity: 0.9;
     }
     50% {
-        transform: translateX(-30px) rotate(-45deg);
+        transform: translateX(-30px) rotate(45deg);
         opacity: 0.3;
     }
     100% {
-        transform: translateX(30px) rotate(-45deg);
+        transform: translateX(30px) rotate(45deg);
         opacity: 0.9;
     }
 }
