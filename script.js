@@ -2,7 +2,7 @@
 const elements = [
     { number: 1, symbol: 'H', name: 'Hidrógeno', category: 'nonmetal' },
     { number: 2, symbol: 'He', name: 'Helio', category: 'noble-gas' },
-    { number: 3, symbol: 'Li', name: 'Litio', category: 'alkali-metal' },
+    { number: 3, symbol: 'Li', name: 'Litio', category: 'alkali-metal', page: 'https://angiepereir.github.io/Litio/'},
     { number: 4, symbol: 'Be', name: 'Berilio', category: 'alkaline-earth' },
     { number: 5, symbol: 'B', name: 'Boro', category: 'metalloid' },
     { number: 6, symbol: 'C', name: 'Carbono', category: 'nonmetal', page: 'https://celiami.github.io/6-carbon/' },
