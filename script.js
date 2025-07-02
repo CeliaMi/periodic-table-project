@@ -78,7 +78,7 @@ const elements = [
     { number: 76, symbol: 'Os', name: 'Osmio', category: 'transition-metal' },
     { number: 77, symbol: 'Ir', name: 'Iridio', category: 'transition-metal' },
     { number: 78, symbol: 'Pt', name: 'Platino', category: 'transition-metal' },
-    { number: 79, symbol: 'Au', name: 'Oro', category: 'transition-metal' },
+    { number: 79, symbol: 'Au', name: 'Oro', category: 'transition-metal', page: 'https://esthertapias.github.io/oro/'},
     { number: 80, symbol: 'Hg', name: 'Mercurio', category: 'transition-metal' },
     { number: 81, symbol: 'Tl', name: 'Talio', category: 'post-transition' },
     { number: 82, symbol: 'Pb', name: 'Plomo', category: 'post-transition' },
