@@ -8,7 +8,7 @@ const elements = [
     { number: 6, symbol: 'C', name: 'Carbono', category: 'nonmetal', page: 'https://celiami.github.io/6-carbon/' },
     { number: 7, symbol: 'N', name: 'Nitrógeno', category: 'nonmetal' },
     { number: 8, symbol: 'O', name: 'Oxígeno', category: 'nonmetal' },
-    { number: 9, symbol: 'F', name: 'Flúor', category: 'halogen' },
+    { number: 9, symbol: 'F', name: 'Flúor', category: 'halogen' ,page: 'https://mcarenashd.github.io/fluor/'},
     { number: 10, symbol: 'Ne', name: 'Neón', category: 'noble-gas' },
     { number: 11, symbol: 'Na', name: 'Sodio', category: 'alkali-metal' },
     { number: 12, symbol: 'Mg', name: 'Magnesio', category: 'alkaline-earth' },
