@@ -6,7 +6,7 @@ const elements = [
     { number: 4, symbol: 'Be', name: 'Berilio', category: 'alkaline-earth' },
     { number: 5, symbol: 'B', name: 'Boro', category: 'metalloid' },
     { number: 6, symbol: 'C', name: 'Carbono', category: 'nonmetal', page: 'https://celiami.github.io/6-carbon/' },
-    { number: 7, symbol: 'N', name: 'Nitrógeno', category: 'nonmetal' },
+    { number: 7, symbol: 'N', name: 'Nitrógeno', category: 'nonmetal', page:'https://guiss26.github.io/nitrogeno/' },
     { number: 8, symbol: 'O', name: 'Oxígeno', category: 'nonmetal' },
     { number: 9, symbol: 'F', name: 'Flúor', category: 'halogen' ,page: 'https://mcarenashd.github.io/fluor/'},
     { number: 10, symbol: 'Ne', name: 'Neón', category: 'noble-gas' },
