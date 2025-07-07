@@ -18,7 +18,7 @@ const elements = [
     { number: 16, symbol: 'S', name: 'Azufre', category: 'nonmetal' },
     { number: 17, symbol: 'Cl', name: 'Cloro', category: 'halogen' },
     { number: 18, symbol: 'Ar', name: 'Argón', category: 'noble-gas' },
-    { number: 19, symbol: 'K', name: 'Potasio', category: 'alkali-metal' },
+    { number: 19, symbol: 'K', name: 'Potasio', category: 'alkali-metal', page:'https://gabriela-her.github.io/potasio-element/' },
     { number: 20, symbol: 'Ca', name: 'Calcio', category: 'alkaline-earth' },
     { number: 21, symbol: 'Sc', name: 'Escandio', category: 'transition-metal' },
     { number: 22, symbol: 'Ti', name: 'Titanio', category: 'transition-metal' },
