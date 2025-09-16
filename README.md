@@ -60,9 +60,15 @@ Para desarrollar el proyecto, usaremos tecnologías web básicas:
 Es impresdincibe que todos los proyectos tengan alojado en la parte superior izquierda un botón para poder volver a la tabla y continuar explorando el resto de proyectos
 
 ```html
+<head>
+    <!-- Cargar Font Awesome para los íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
         <a href="https://celiami.github.io/periodic-table-project/#table-section" class="home-button" title="Volver a la tabla periódica">
             <i class="fas fa-house"></i>
         </a>
+</body>
 ```
 ```css
 /* Home button styles */
