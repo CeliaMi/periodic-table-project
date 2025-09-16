@@ -55,6 +55,55 @@ Para desarrollar el proyecto, usaremos tecnologías web básicas:
 - **CSS** – para diseñar y dar estilo a las páginas (colores, tipografías, disposición)  
 - **JavaScript**  – para añadir interactividad (animaciones, botones, efectos, etc.)
 
+## Botón para volver a la tabla periódica
+
+Es impresdincibe que todos los proyectos tengan alojado en la parte superior izquierda un botón para poder volver a la tabla y continuar explorando el resto de proyectos
+
+```html
+        <a href="https://celiami.github.io/periodic-table-project/#table-section" class="home-button" title="Volver a la tabla periódica">
+            <i class="fas fa-house"></i>
+        </a>
+```
+```css
+/* Home button styles */
+.home-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    margin-left: 1rem;
+    background-color: #FF4700;
+    color: #ffffff;
+    border-radius: 8px;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.home-button i {
+    font-size: 1rem;
+}
+
+.home-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+    background-color: #e24000;
+}
+
+/* Mobile tweaks: keep size tappable */
+@media screen and (max-width: 768px) {
+    .home-button {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+    }
+    .home-button i {
+        font-size: 1.1rem;
+    }
+}
+```
+
 ### Recursos visuales y sonoros
 
 - Las **imágenes, sonidos y vídeos** utilizados deben ser **libres de derechos**.  
